@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * quick_sort - function that sorts array based on quick sort algorithm
+ * quick_sort - function that sorts arrays based on quick sort algorithm
  * @array: array to sort
  * @size: size of array
  * Description: sorts array using lomuto partition
