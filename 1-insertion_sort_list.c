@@ -1,8 +1,5 @@
 #include "sort.h"
-
 #include "print_list.c"
-
-
 
 /**
 
@@ -11,8 +8,6 @@
  * @list: double poiter to head node of a doubly linked list
 
  */
-
-
 
 void insertion_sort_list(listint_t **list)
 
