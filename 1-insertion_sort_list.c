@@ -1,5 +1,4 @@
 #include "sort.h"
-#include "print_list.c"
 
 /**
  * insertion_sort_list - dorting function based on insertion algorithm
