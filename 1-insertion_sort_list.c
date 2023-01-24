@@ -23,7 +23,7 @@ void insertion_sort_list(listint_t **list)
 		{
 			insert->next = trav->next;
 			/**
-			 * checks if trav->next is NULL before updating its
+			 * checks if trav->next is NULL before updating it
 			 * next value previous link with insert value link
 			 */
 			if (trav->next != NULL)
