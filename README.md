@@ -1,4 +1,4 @@
-# Sorting algorithms & Big O
+# Sorting algorithms & Big O Project for ALX software engineering school 
 
 - Implementation of twelve different sorting algorithms.
 
@@ -369,4 +369,4 @@ Function Prototype:
   * Orders the deck from spades to diamonds and from aces to kings.
 
 # Authors
-* Okato Ogheneochuko Erhivwor and Theresa James
+* Okato Ogheneochuko Erhivwor,Kedishi Emmanuel  and Theresa James
