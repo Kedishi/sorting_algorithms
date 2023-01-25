@@ -1,10 +1,16 @@
 #include "sort.h"
 
+
+
 /**
 
- * insertion_sort_list - dorting function based on insertion algorithm
+ * insertion_sort_list - insertion sort on doubly linked list
 
- * @list: double poiter to head node of a doubly linked list
+ * @list: double pointer to list head
+
+ *
+
+ * Return: void
 
  */
 
@@ -12,81 +18,75 @@ void insertion_sort_list(listint_t **list)
 
 {
 
-	listint_t *trav, *temp, *insert;
+	listint_t *current;
 
 
 
-	for (trav = (*list)->next; trav != NULL; trav = temp)
+	if (list == NULL || (*list) == NULL || (*list)->next == NULL)
+
+		return;
+
+	current = (*list)->next;
+
+
+
+	while (current)
 
 	{
 
-		if (list == NULL || *list == NULL || (*list)->next == NULL)
-
-			return;
-
-
-
-		/* assigns temp trav->next to help traverse the list */
-
-		temp = trav->next;
-
-		/* insert value serve as sorted element in insertion sort */
-
-		insert = trav->prev;
-
-		while (insert != NULL && trav->n < insert->n)
+		while (current->prev && current->n < current->prev->n)
 
 		{
 
-			insert->next = trav->next;
+			/* temp node to hold current */
 
-			/**
+			listint_t *temp = current;
 
-			 * checks if trav->next is NULL before updating it
+			/* adjust adjacent links to current */
 
-			 * next value previous link with insert value link
+			if (temp->next)
 
-			 */
+				temp->next->prev = current->prev;
 
-			if (trav->next != NULL)
+			temp->prev->next = current->next;
 
-				trav->next->prev = insert;
+			/* change current to previous node */
 
-			trav->prev = insert->prev;
+			current = current->prev;
 
-			trav->next = insert;
+			/*adjust temp node to point to previous current */
 
-			/**
+			temp->next = current;
 
-			 * condition checks if the list (head) value needs to
+			temp->prev = temp->prev->prev;
 
-			 * be updated so as not to loose the head pointer
+			/* point back current, which is now move behind to temp */
 
-			 * NULL means its the begining of the double list
+			current->prev = temp;
 
-			 * if NULL, the head will be updated with new address
+			/* adjust temp prev */
 
-			 * if !NULL the insert->prev->next will be updated
+			if (temp->prev)
 
-			 */
+				temp->prev->next = temp;
 
-			if (insert->prev != NULL)
+			/* adjust head node */
 
-				insert->prev->next = trav;
+			if (temp->prev == NULL)
 
-			else
+				(*list) = temp;
 
-				*list = trav;
+			/* print list */
 
-			insert->prev = trav;
+			print_list(*list);
 
-			insert = trav->prev;
+			/* move back list */
 
-			/* print the list with each swap */
-
-			print_list((const listint_t *) *list);
+			current = current->prev;
 
 		}
+
+		current = current->next;
 
 	}
 
